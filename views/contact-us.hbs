@@ -1,0 +1,82 @@
+<!-- reformed nav bar start -->
+<div style="position: sticky; top: 0; z-index: 99">
+    <ul>
+        <li>
+            <a href="/contact-us">
+                <i class="fas fa-info-circle"></i>
+                Contact Us
+            </a>
+        </li>
+        <li id="mybooking">
+            <a href="/myfolio">
+                <i class="fas fa-address-card"></i>
+                myBooking
+            </a>
+            <script>
+                if ("{{username}}" == "administrator"){
+                    var forum = document.getElementById("mybooking");
+                    forum.style.display = 'none';
+                }
+            </script>
+        </li>
+        <li id = "forum">
+            <a href="/discussion-board">
+                <i class="fas fa-comments"></i>
+                Schedule Management
+            </a>
+            <script>
+                if ("{{username}}" != "administrator"){
+                    var forum = document.getElementById("forum");
+                    forum.style.display = 'none';
+                }
+            </script>
+        </li>
+        <li class="dropdown">
+            <a class="dropbtn" href="/user">
+                <i class="fas fa-user-cog"></i>
+                User Center
+            </a>
+            <div class="dropdown-content">
+                <a href="/user/user-UD">
+                    Account Management
+                </a>
+                <div class="input">
+                    <input type="hidden" id="cookiename" name="accountName" value = {{username}}>
+                </div>
+                <a id="logout" href="/user/logout">
+                    Log out
+                </a>
+                <script>
+                    var logoutOptin = document.getElementById("logout");
+                    var cookiename = document.getElementById("cookiename");
+                    if(cookiename.value == ""){
+                        logoutOptin.innerText = "Login";
+                    }
+                </script>
+            </div>
+        </li>
+
+        <li>
+            <a href="/">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+        </li>
+        <img class="circle" src={{photo}} width="40" height="40">
+        <li class = "username">
+            <a>{{username}}</a>
+        </li>
+    </ul>
+</div>
+<!-- reformed nav bar end -->
+
+<div id="section1">
+    <div class="details_right">
+        <br><br><br><br><br><br><br><br><br>
+        <div class="bold">Contact Us</div>
+        <br>
+        Talk to one of our experts over the phone, live webchat or email.
+        We’re ready to help you find the information you need to start,
+        run or grow your business.
+    </div>
+</div>

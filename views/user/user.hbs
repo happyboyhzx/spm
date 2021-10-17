@@ -1,0 +1,134 @@
+<div style="position: sticky;top:0px;z-index: 99">
+    <ul>
+<!--    <div class="input">-->
+<!--        <input type="hidden" id="cookiename" name="accountName" value = {{username}}>-->
+<!--    </div>-->
+<!--    <div class="input">-->
+<!--        <input type="hidden" id="photosrc" name="photosrc" value={{photo}}>-->
+<!--    </div>-->
+    <li>
+        <li><a href="/contact-us">
+        <i class="fas fa-info-circle"></i>
+            Contact Us
+        </a>
+        </li>
+        <li id="mybooking">
+            <a href="/myfolio">
+                <i class="fas fa-address-card"></i>
+                myBooking
+            </a>
+            <script>
+                if ("{{username}}" == "administrator"){
+                    var forum = document.getElementById("mybooking");
+                    forum.style.display = 'none';
+                }
+            </script>
+        </li>
+        <li id = "forum">
+            <a href="/discussion-board">
+            <i class="fas fa-comments"></i>
+                Schedule Management
+            </a>
+            <script>
+                if ("{{username}}" != "administrator"){
+                    var forum = document.getElementById("forum");
+                    forum.style.display = 'none';
+                }
+            </script>
+        </li>
+        <li class="dropdown">
+            <a class="dropbtn" href="/user">
+            <i class="fas fa-user-cog"></i>
+            User Center
+            </a>
+            <div class="dropdown-content">
+                <a href="/user/user-UD">Account Management</a>
+                <a id="logout" href="/user/logout">
+                    Log out
+                </a>
+                <script>
+                    var logoutOptin = document.getElementById("logout");
+                    var cookiename = document.getElementById("cookiename");
+                    var photo = document.getElementById("photosrc");
+                    if(cookiename.value == ""){
+                        logoutOptin.innerText = "Login";
+                    }
+                </script>
+            </div>
+        </li>
+        <li><a href="/">
+            <i class="fas fa-home"></i>
+            Home
+        </a>
+        </li>
+
+        <img class="circle" src={{photo}} width="40" height="40">
+        <li class = "username">
+
+            <a>{{username}}</a>
+
+        </li>
+
+
+
+    </ul>
+</div>
+
+<h1>
+    Welcome back, {{username}}!
+</h1>
+
+<br>
+<br>
+<br>
+<br>
+
+
+<section class="folio">
+    <br>
+    <br>
+    <br>
+    <usercentre_h2>
+        Booking travelling bus
+    </usercentre_h2><br>
+    <br>
+    <usercentre_h3>
+
+        <br>
+        11111
+        <br>
+    </usercentre_h3>
+    <br>
+    <br>
+    <br>
+    <button class = "go_folio"><a href="/myfolio" style="color: white">Booking Bus</a></button>
+</section>
+
+
+<section id = "management" class="forum">
+    <br>
+    <br>
+    <br>
+    <usercentre_h2>
+        Travelling Bus Schedule
+    </usercentre_h2><br>
+    <br>
+    <usercentre_h3>
+
+        <br>
+        See how many booking here
+        <br>
+
+    </usercentre_h3>
+    <br>
+    <br>
+    <br>
+    <button class = "go_forum"><a href="/discussion-board" style="color: #34495e" >Bus Schedule</a></button>
+    <script>
+        if ("{{username}}" != "administrator"){
+            var management = document.getElementById("management");
+            management.style.display = 'none';
+        }
+    </script>
+
+</section>

@@ -1,0 +1,269 @@
+<!-- reformed nav bar start -->
+<div style="position: sticky;top:0px;z-index: 99">
+    <ul>
+        <li>
+            <a href="/contact-us">
+                <i class="fas fa-info-circle"></i>
+                Contact Us
+            </a>
+        </li>
+        <li id="mybooking">
+            <a href="/myfolio">
+                <i class="fas fa-address-card"></i>
+                myBooking
+            </a>
+            <script>
+                if ("{{username}}" == "administrator"){
+                    var forum = document.getElementById("mybooking");
+                    forum.style.display = 'none';
+                }
+            </script>
+        </li>
+        <li id = "forum">
+            <a href="/discussion-board">
+                <i class="fas fa-comments"></i>
+                Schedule Management
+            </a>
+            <script>
+                if ("{{username}}" != "administrator"){
+                    var forum = document.getElementById("forum");
+                    forum.style.display = 'none';
+                }
+            </script>
+        </li>
+        <li class="dropdown">
+            <a class="dropbtn" href="/user">
+                <i class="fas fa-user-cog"></i>
+                User Center
+            </a>
+            <content class="dropdown-content">
+                <a href="/user/user-UD">
+                    Account Management
+                </a>
+
+                <div class="input">
+                    <input type="hidden" id="cookiename" name="accountName" value = {{username}}>
+                </div>
+                <a id="logout" href="/user/logout">
+                    Log out
+                </a>
+                <script>
+                    var logoutOptin = document.getElementById("logout");
+                    var cookiename = document.getElementById("cookiename");
+
+                    if(cookiename.value == ""){
+                        logoutOptin.innerText = "Login";
+                    }
+                </script>
+            </content>
+        </li>
+        <li>
+            <a href="/">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+        </li>
+
+        <img class="circle" src={{photo}} width="40" height="40">
+        <li class = "username">
+            <a>{{username}}</a>
+        </li>
+    </ul>
+</div>
+<!-- reformed nav bar end -->
+
+<h1 id="userTitle">myBooking</h1>
+
+<br>
+
+
+<div class="wrapper" id = "userside">
+    <div class="myName">
+        {{folioUsername}}
+        <br>
+        <!--<hr align=center width=95% color=#FFFFFF size=1>-->
+        <button class = "edit" style="display: {{editDisplay}};">
+            <a href="/edit-myfolio" style="color:#34495e">
+                <i class="fas fa-edit"></i>edit
+            </a>
+        </button>
+    </div>
+
+<!--    <div class="myPhoto">-->
+<!--        <img src="{{myPhoto}}" alt='myPhoto' onerror="this.src='../../resource/default.jpg'" width ="400" height="450">-->
+<!--    </div>-->
+
+    <div class="myInfo1">
+        School name: {{fname}}<br><br>
+        City: {{country}}<br><br>
+        Post code: {{occupation}}<br><br>
+<!--        Birthday: {{birthday}}<br><br>-->
+
+    </div>
+
+    <div class="myInfo1">
+        Address: {{lname}}<br><br>
+        State: {{gender}}<br><br>
+        School type: {{schooltype}}<br><br>
+
+    </div>
+
+    <div class = "customizeInfo">
+<!--        {{customizekey1}}: {{customizeInfo1}}<br><br>-->
+<!--        {{customizekey2}}: {{customizeInfo2}}<br><br>-->
+<!--        {{customizekey3}}: {{customizeInfo3}}<br><br>-->
+
+        <div class="input">
+            <input type="hidden" id="eachKey1" name="eachKey1" value = {{customizeInfo1}}>
+        </div>
+        <div id = "eachValue1">Is secure parking present: {{customizeInfo1}}<br><br></div>
+        <script>
+            var key = document.getElementById("eachKey1");
+            if(key.value == ""){
+                document.getElementById("eachValue1").style.display = "none";
+            }
+        </script>
+
+        <div class="input">
+            <input type="hidden" id="eachKey2" name="eachKey2" value = {{customizeInfo2}}>
+        </div>
+        <div id = "eachValue2">Total car parking spaces: {{customizeInfo2}}<br><br></div>
+        <script>
+            var key = document.getElementById("eachKey2");
+            if(key.value == ""){
+                document.getElementById("eachValue2").style.display = "none";
+            }
+        </script>
+
+        <div class="input">
+            <input type="hidden" id="eachKey3" name="eachKey3" value = {{customizeInfo3}}>
+        </div>
+        <div id = "eachValue3">Total open areas: {{customizeInfo3}}<br><br></div>
+        <script>
+            var key = document.getElementById("eachKey3");
+            if(key.value == ""){
+                document.getElementById("eachValue3").style.display = "none";
+            }
+        </script>
+        <br>
+
+        <div class="input">
+            <input type="hidden" id="each-Value1" name="each-Value1" value = {{customizekey1}}>
+        </div>
+        <div id = "each-Key1">Visiting school name: {{customizekey1}}<br><br></div>
+        <script>
+            var key = document.getElementById("each-Value1");
+            if(key.value == ""){
+                document.getElementById("each-Key1").style.display = "none";
+            }
+        </script>
+
+        <div class="input">
+            <input type="hidden" id="each-Value2" name="each-Value2" value = {{customizekey2}}>
+        </div>
+        <div id = "each-Key2">Nearest host school name: {{customizekey2}}<br><br></div>
+        <script>
+            var key = document.getElementById("each-Value2");
+            if(key.value == ""){
+                document.getElementById("each-Key2").style.display = "none";
+            }
+        </script>
+
+        <div class="input">
+            <input type="hidden" id="each-Value3" name="each-Value3" value = {{customizekey3}}>
+        </div>
+        <div id = "each-Key3">Distance from nearest host school: {{customizekey3}}<br><br></div>
+        <script>
+            var key = document.getElementById("each-Value3");
+
+            if(key.value == ""){
+                document.getElementById("each-Key3").style.display = "none";
+            }
+        </script>
+        <br>
+
+        Message: {{subject}}<br><br>
+    </div>
+</div>
+<script>
+    if ("{{username}}" == "administrator"){
+        var userside = document.getElementById("userside");
+        userside.style.display = 'none';
+    }
+    if ("{{username}}" != "administrator"){
+        var userside = document.getElementById("userside");
+        userside.style.display = 'block';
+    }
+
+    if ("{{username}}" == "administrator"){
+        var userTitle = document.getElementById("userTitle");
+        userTitle.style.display = 'none';
+    }
+    if ("{{username}}" != "administrator"){
+        var userTitle = document.getElementById("userTitle");
+        userTitle.style.display = 'block';
+    }
+</script>
+<br>
+
+
+<h1 id="adminsidet">
+    Rostering a schedule for a school for {{folioUsername}}
+</h1>
+<br>
+
+<div class="wrapper2" id="adminside">
+
+
+    <form action="../user/sign-up/updateTime" method="post">
+        Expression of Interest Acceptance ID: {{acceptanceId}}<br><br>
+        School name: {{fname}}<br><br>
+        School type: {{schooltype}}<br><br>
+
+        <input type="hidden" id="acceptanceId" name="acceptanceId" value = {{acceptanceId}}>
+        <input type="hidden" id="fname" name="fname" value = {{fname}}>
+        <input type="hidden" id="lname" name="lname" value = {{lname}}>
+        <input type="hidden" id="schooltype" name="schooltype" value = {{schooltype}}>
+        <input type="hidden" id="accnaMe" name="accnaMe" value = {{folioUsername}}>
+
+        <div>
+            <label for="startTime">Start Date:</label>
+        </div>
+        <input type="hidden" id="accname1" name="accname1" value = {{folioUsername}}>
+        <input type="hidden" id="startTime1" name="startTime1" value = {{birthday}}>
+        <input type="date" id="startTime" name="startTime"
+               value="2021-10-15"
+               min="2021-9-30" max="2023-12-31" style="margin-top: 10px">
+
+        <div>
+            <label for="endedTime">End Date:</label>
+        </div>
+        <input type="hidden" id="endedTime1" name="endedTime1" value = {{birthday}}>
+        <input type="date" id="endedTime" name="endedTime"
+               value="2021-10-16"
+               min="2021-9-30" max="2023-12-31" style="margin-top: 10px">
+
+        <button type = submit>Save</button>
+    </form>
+
+</div>
+
+<script>
+    if ("{{username}}" == "administrator"){
+        var userside = document.getElementById("adminside");
+        userside.style.display = 'block';
+    }
+    if ("{{username}}" != "administrator"){
+        var userside = document.getElementById("adminside");
+        userside.style.display = 'none';
+    }
+
+    if ("{{username}}" == "administrator"){
+        var userTitle = document.getElementById("adminsidet");
+        userTitle.style.display = 'block';
+    }
+    if ("{{username}}" != "administrator"){
+        var userTitle = document.getElementById("adminsidet");
+        userTitle.style.display = 'none';
+    }
+</script>
