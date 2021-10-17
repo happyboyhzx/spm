@@ -22,6 +22,9 @@ var createUser = async function(req, res, next) {
     var accountName = req.body.accountName, password = req.body.password;
     var photo = req.body.photo;
     var confirmPassword = req.body.confirmPassword;
+    var sname = req.body.fname;
+    var snamec = req.body.snamec;
+    var snumber = req.body.snumber;
     var isValid = false;
     var identical = false;
     var textMessage = "";
@@ -72,7 +75,10 @@ var createUser = async function(req, res, next) {
             var item = {
                 accountName: accountName,
                 password: hash,
-                photo: photo
+                photo: photo,
+                fname: sname,
+                snamec: snamec,
+                snumber: snumber
             };
 
 
