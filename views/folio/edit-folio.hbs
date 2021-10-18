@@ -25,7 +25,7 @@
                 Schedule Management
             </a>
             <div class="input">
-                <input type="hidden" id="cookiename" name="accountName" value = {{username}}>
+                <input type="hidden" id="cookiename" name="accountName" value = "{{username}}">
             </div>
             <script>
 
@@ -46,7 +46,7 @@
                     Account Management
                 </a>
                 <div class="input">
-                    <input type="hidden" id="cookiename" name="accountName" value = {{username}}>
+                    <input type="hidden" id="cookiename" name="accountName" value = "{{username}}">
                 </div>
                 <a id="logout" href="/user/logout">
                     Log out
@@ -74,7 +74,7 @@
 </div>
 <!-- reformed nav bar end -->
 
-<h1>edit my folio here</h1>
+<h1>edit my booking here</h1>
 
 
 <script>
@@ -84,9 +84,8 @@
 <div class="container" id="interest">
     <form action="/user/sign-up/updateUserInfo" method="post">
         <div class="row">
-            <h3>Personal Information</h3>
+            <h3>Booking Information</h3>
             <h4>Don't forget to save changes!<br>
-                Fill in the form with some basic information of yours. Customize your own columns on the bottom of this part<br>
             </h4>
 
         </div>
@@ -95,7 +94,7 @@
                 <label for="fname">School Name</label>
             </div>
             <div class="value">
-                <input type="text" id="fname" name="firstname" placeholder="Your name.." value={{fname}}>
+                <input type="text" id="fname" name="firstname" value="{{fname}}">
             </div>
         </div>
         <div class="row">
@@ -103,7 +102,7 @@
                 <label for="lname">Address</label>
             </div>
             <div class="value">
-                <input type="text" id="lname" name="lastname" placeholder="Your last name.." value={{lname}}>
+                <input type="text" id="lname" name="lastname" placeholder="Your Address..." value="{{lname}}">
             </div>
         </div>
         <div class="row">
@@ -111,7 +110,7 @@
                 <label for="country">City</label>
             </div>
             <div class="value">
-                <input type="text" id="country" name="country" value = {{country}}>
+                <input type="text" id="country" name="country" value = "{{country}}">
 <!--                <input type="hidden" id="mycountry" name="mycountry" value = {{country}}>-->
 <!--                <select id="country" name="country">-->
 <!--                    <option value="Australia">Australia</option>-->
@@ -136,7 +135,7 @@
                 <label for="gender">State</label>
             </div>
             <div class="value">
-                <input type="text" id="gender" name="gender" value = {{gender}}>
+                <input type="text" id="gender" name="gender" value = "{{gender}}">
 <!--                <input type="hidden" id="mygender" name="mygender" value = {{gender}}>-->
 <!--                <select id="gender" name="gender">-->
 <!--                    <option value="Other">other</option>-->
@@ -177,7 +176,7 @@
                 <label for="occupation">Post code</label>
             </div>
             <div class="value">
-                <input type="text" id="occupation" name="occupation" placeholder="Your occupation/education.." value={{occupation}}>
+                <input type="text" id="occupation" name="occupation" value="{{occupation}}">
             </div>
         </div>
 
@@ -189,7 +188,7 @@
                 <label for="schooltype">School type</label>
             </div>
             <div class="value">
-                <input type="hidden" id="schooltype" name="schooltype" value = {{schooltype}}>
+                <input type="hidden" id="schooltype" name="schooltype" value = "{{schooltype}}">
                 <select id="schooltype1" oninput="myFunction()" name="schooltype1">
                     <option value="Hosting school">Hosting school</option>
                     <option value="Visiting school">Visiting school</option>
@@ -218,7 +217,7 @@
                 </div>
 
                 <div class="value">
-                    <input type="text" id="customvalue1" name="customvalue1" placeholder="Write something.." value={{customizeInfo1}}>
+                    <input type="text" id="customvalue1" name="customvalue1" value="{{customizeInfo1}}">
                 </div>
             </div>
 
@@ -229,7 +228,7 @@
                 </div>
 
                 <div class="value">
-                    <input type="text" id="customvalue2" name="customvalue2" placeholder="Write something.." value={{customizeInfo2}}>
+                    <input type="text" id="customvalue2" name="customvalue2" value="{{customizeInfo2}}">
                 </div>
             </div>
 
@@ -240,7 +239,7 @@
                 </div>
 
                 <div class="value">
-                    <input type="text" id="customvalue3" name="customvalue3" placeholder="Write something.." value={{customizeInfo3}}>
+                    <input type="text" id="customvalue3" name="customvalue3" value="{{customizeInfo3}}">
                 </div>
             </div>
             </div>
@@ -254,7 +253,7 @@
                     </div>
 
                     <div class="value">
-                        <input type="text" id="customkey1" name="customkey1" placeholder="Write something.." value={{customizeInfo1}}>
+                        <input type="text" id="customkey1" name="customkey1" value="{{customizeInfo1}}">
                     </div>
                 </div>
 
@@ -265,7 +264,7 @@
                     </div>
 
                     <div class="value">
-                        <input type="text" id="customkey2" name="customkey2" placeholder="Write something.." value={{customizeInfo2}}>
+                        <input type="text" id="customkey2" name="customkey2" value="{{customizeInfo2}}">
                     </div>
                 </div>
 
@@ -276,7 +275,7 @@
                     </div>
 
                     <div class="value">
-                        <input type="text" id="customkey3" name="customkey3" placeholder="Write something.." value={{customizeInfo3}}>
+                        <input type="text" id="customkey3" name="customkey3" value="{{customizeInfo3}}">
                     </div>
                 </div>
             </div>
@@ -311,7 +310,7 @@
                     <label for="bus_message">Message</label>
                 </div>
                 <div class="value">
-                    <textarea id="subject" name="subject" placeholder="Write something.." >{{subject}}</textarea>
+                    <textarea id="subject" name="subject" >{{subject}}</textarea>
                 </div>
             </div>
 
@@ -357,20 +356,20 @@
 
     <form action="../user/sign-up/updateTime" method="post">
 
-        <input type="hidden" id="acceptanceIdd" name="acceptanceId" value = {{acceptanceId}}>
-        <input type="hidden" id="fnamee" name="fname" value = {{fname}}>
-        <input type="hidden" id="lnamee" name="lname" value = {{lname}}>
-        <input type="hidden" id="schooltypee" name="schooltype" value = {{schooltype}}>
+        <input type="hidden" id="acceptanceIdd" name="acceptanceId" value ="{{acceptanceId}}">
+        <input type="hidden" id="fnamee" name="fname" value = "{{fname}}">
+        <input type="hidden" id="lnamee" name="lname" value = "{{lname}}">
+        <input type="hidden" id="schooltypee" name="schooltype" value = "{{schooltype}}">
 
-        <input type="hidden" id="accpID" name="accpID" value = {{startTime}}>
+        <input type="hidden" id="accpID" name="accpID" value = "{{startTime}}">
         Expression of Interest Acceptance ID: {{acceptanceId}}<br><br>
         School name: {{fname}}<br><br>
         School type: {{schooltype}}<br><br>
-        <input type="hidden" id="accname1" name="accname1" value = {{username}}>
+        <input type="hidden" id="accname1" name="accname1" value = "{{username}}">
         <div>
             <label for="startTime">Start Date:</label>
         </div>
-        <input type="hidden" id="startTime1" name="startTime1" value = {{startTime}}>
+        <input type="hidden" id="startTime1" name="startTime1" value = "{{startTime}}">
         <input type="date" id="startTime" name="startTime"
                value="{{startTime}}"
                min="2021-9-30" max="2023-12-31" style="margin-top: 10px">
@@ -378,7 +377,7 @@
         <div>
             <label for="endedTime">End Date:</label>
         </div>
-        <input type="hidden" id="endedTime1" name="endedTime1" value = {{endedTime}}>
+        <input type="hidden" id="endedTime1" name="endedTime1" value = "{{endedTime}}">
         <input type="date" id="endedTime" name="endedTime"
                value="{{endedTime}}"
                min="2021-9-30" max="2023-12-31" style="margin-top: 10px">
@@ -388,7 +387,7 @@
                 <label for="specialized">Participate in Specialized activities?</label>
             </div>
             <div class="value">
-                <input type="hidden" id="myspecialized" name="myspecialized" value = {{specialized}}>
+                <input type="hidden" id="myspecialized" name="myspecialized" value = "{{specialized}}">
                 <select id="specialized" oninput="extram()" name="specialized">
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
@@ -410,14 +409,14 @@
                             <label for="numOfStudent">Total students participating</label>
                         </div>
                         <div class="value">
-                            <input type="text" id="numOfStudent" oninput="totalmoneyy()" name="numOfStudent" value={{numOfStudent}}>
+                            <input type="text" id="numOfStudent" oninput="totalmoneyy()" name="numOfStudent" value="{{numOfStudent}}">
                         </div>
                     </div>
                     <br>
                     Cost per student: 30$
                     <br><br>
                     <div class="row">
-                        Total cost: <input type="text" id="totalmoney" name="totalmoney" value={{totalmoney}}>
+                        Total cost: <input type="text" id="totalmoney" name="totalmoney" value="{{totalmoney}}">
                         <script>
                             function totalmoneyy(){
                                 var totalm = document.getElementById("numOfStudent").value * 30;
@@ -476,7 +475,7 @@
 <!--            </script>-->
 
 
-            <input type="hidden" id="cancel1" name="cancel1" value = {{statu}}>
+            <input type="hidden" id="cancel1" name="cancel1" value = "{{statu}}">
             Apply for cancellation: <select id="statu" oninput="reasons()" name="statu">
                 <option value="No">No</option>
                 <option value="Yes">Yes</option>
